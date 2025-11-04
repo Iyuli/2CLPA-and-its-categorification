@@ -19,7 +19,7 @@
 
 \refsection{0}
   \datalist[entry]{nty/global//global/global/global}
-    \entry{fominClusterAlgebrasII2003}{article}{}{}
+    \entry{fominClusterAlgebrasIV2007}{article}{}{}
       \name{author}{2}{}{%
         {{hash=a183f65383a180a1e8ab1a2743c9c612}{%
            family={Fomin},
@@ -32,6 +32,9 @@
            given={Andrei},
            giveni={A\bibinitperiod}}}%
       }
+      \list{language}{1}{%
+        {en}%
+      }
       \strng{namehash}{0a5e50e1402f041c19d73ff0783982c7}
       \strng{fullhash}{0a5e50e1402f041c19d73ff0783982c7}
       \strng{fullhashraw}{0a5e50e1402f041c19d73ff0783982c7}
@@ -43,20 +46,33 @@
       \field{sortinit}{F}
       \field{sortinithash}{2638baaa20439f1b5a8f80c6c08a13b4}
       \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{issn}{00209910}
-      \field{journaltitle}{Inventiones Mathematicae}
-      \field{number}{1}
-      \field{title}{Cluster algebras {II}: {Finite} type classification}
-      \field{volume}{154}
-      \field{year}{2003}
-      \field{pages}{63\bibrangedash 121}
-      \range{pages}{59}
+      \field{labeltitlesource}{shorttitle}
+      \field{abstract}{We study the dependence of a cluster algebra on the choice of coeﬃcients. We write general formulas expressing the cluster variables in any cluster algebra in terms of the initial data; these formulas involve a family of polynomials associated with a particular choice of ‘principal’ coeﬃcients. We show that the exchange graph of a cluster algebra with principal coeﬃcients covers the exchange graph of any cluster algebra with the same exchange matrix. We investigate two families of parameterizations of cluster monomials by lattice points, determined, respectively, by the denominators of their Laurent expansions and by certain multi-gradings in cluster algebras with principal coeﬃcients. The properties of these parameterizations, some proven and some conjectural, suggest links to duality conjectures of Fock and Goncharov. The coeﬃcient dynamics leads to a natural generalization of Zamolodchikov’s Y -systems. We establish a Laurent phenomenon for such Y -systems, previously known in ﬁnite type only, and sharpen the periodicity result from an earlier paper. For cluster algebras of ﬁnite type, we identify a canonical ‘universal’ choice of coeﬃcients such that an arbitrary cluster algebra can be obtained from the universal one (of the same type) by an appropriate specialization of coeﬃcients.}
+      \field{issn}{0010-437X, 1570-5846}
+      \field{journaltitle}{Compositio Math.}
+      \field{month}{1}
+      \field{number}{01}
+      \field{shorttitle}{Cluster algebras {IV}}
+      \field{title}{Cluster algebras {IV}: {Coefficients}}
+      \field{urlday}{15}
+      \field{urlmonth}{10}
+      \field{urlyear}{2024}
+      \field{volume}{143}
+      \field{year}{2007}
+      \field{urldateera}{ce}
+      \field{pages}{112\bibrangedash 164}
+      \range{pages}{53}
       \verb{doi}
-      \verb 10.1007/s00222-003-0302-y
+      \verb 10.1112/S0010437X06002521
       \endverb
       \verb{file}
-      \verb PDF:/Users/ueiynee/Zotero/storage/PGTR3YZS/Fomin和Zelevinsky - 2003 - Cluster algebras II Finite type classification.pdf:application/pdf
+      \verb PDF:/Users/ueiynee/Zotero/storage/55HYPYRT/Fomin和Zelevinsky - 2007 - Cluster algebras IV Coefficients.pdf:application/pdf
+      \endverb
+      \verb{urlraw}
+      \verb http://www.journals.cambridge.org/abstract_S0010437X06002521
+      \endverb
+      \verb{url}
+      \verb http://www.journals.cambridge.org/abstract_S0010437X06002521
       \endverb
     \endentry
   \enddatalist

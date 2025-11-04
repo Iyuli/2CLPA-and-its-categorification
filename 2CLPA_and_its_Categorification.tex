@@ -1,23 +1,182 @@
 \documentclass[11pt]{article}
-% ---------------- 导言区 ----------------
-% cspell:words categorification
-\input{preamble.tex}
-% ensure scalable fonts and provide math script alphabet to avoid "U/rsfs" font-shape warnings
-\usepackage[T1]{fontenc}
-\usepackage{lmodern}
-\usepackage{mathrsfs}
-\DeclareMathAlphabet{\mathscr}{U}{rsfs}{m}{n}
-\addbibresource{2-cyclicLaurentPolynomialAlgebras.bib}
-% ---------------- 文档开始 ----------------
-\begin{document}
 
-\title{2-cyclic Laurent polynomial algebras and their Categorifications}
+% ---------------- Package Imports ----------------
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage[english]{babel}
+\usepackage[backend=biber,backref=true]{biblatex}
+\usepackage{cases}
+\usepackage{colonequals}
+\usepackage{csquotes}
+\usepackage{enumerate}
+\usepackage{etoolbox}
+\usepackage{fancyhdr}
+\usepackage{float}
+\usepackage[T1]{fontenc}
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage[colorlinks=true,linkcolor=Maroon,citecolor=LimeGreen,linktocpage=true]{hyperref}
+%\usepackage[utf8]{inputenc}
+\usepackage{latexsym}
+\usepackage{mathpazo}
+\usepackage{mathrsfs}
+\usepackage{mathtools}
+\usepackage{microtype}
+\UseMicrotypeSet[protrusion]{basicmath} % enable protrusion for math
+\usepackage{multicol}
+\usepackage{setspace}
+\usepackage{soul}
+\usepackage{stmaryrd}
+\usepackage{tikz}
+\usepackage{tikz-cd}
+\usepackage[dvipsnames]{xcolor}
+\usepackage[all]{xy}
+
+
+% ---------------- Page Layout ----------------
+\geometry{left=2.5cm,right=2cm,top=2.5cm,bottom=3.3cm}
+
+% ---------------- Bibliography ----------------
+\addbibresource{2-cyclicLaurentPolynomialAlgebras.bib}
+
+% ---------------- Numbering Conventions ----------------
+\numberwithin{equation}{section}
+
+% ---------------- Macros ----------------
+% Blackboard bold letters
+\newcommand{\bA}{\mathbb{A}}
+\newcommand{\bB}{\mathbb{B}}
+\newcommand{\bC}{\mathbb{C}}
+\newcommand{\bD}{\mathbb{D}}
+\newcommand{\bE}{\mathbb{E}}
+\newcommand{\bF}{\mathbb{F}}
+\newcommand{\bG}{\mathbb{G}}
+\newcommand{\bK}{\mathbb{K}}
+\newcommand{\bL}{\mathbb{L}}
+\newcommand{\bN}{\mathbb{N}}
+\newcommand{\bP}{\mathbb{P}}
+\newcommand{\bQ}{\mathbb{Q}}
+\newcommand{\bX}{\mathbb{X}}
+\newcommand{\bZ}{\mathbb{Z}}
+
+% Calligraphic letters
+\newcommand{\cA}{\mathcal{A}}
+\newcommand{\cB}{\mathcal{B}}
+\newcommand{\cC}{\mathcal{C}}
+\newcommand{\cD}{\mathcal{D}}
+\newcommand{\cE}{\mathcal{E}}
+\newcommand{\cF}{\mathcal{F}}
+\newcommand{\cG}{\mathcal{G}}
+\newcommand{\cH}{\mathcal{H}}
+\newcommand{\cI}{\mathcal{I}}
+\newcommand{\cJ}{\mathcal{J}}
+\newcommand{\cK}{\mathcal{K}}
+\newcommand{\cL}{\mathcal{L}}
+\newcommand{\cM}{\mathcal{M}}
+\newcommand{\cN}{\mathcal{N}}
+\newcommand{\cO}{\mathcal{O}}
+\newcommand{\cP}{\mathcal{P}}
+\newcommand{\cQ}{\mathcal{Q}}
+\newcommand{\cR}{\mathcal{R}}
+\newcommand{\cS}{\mathcal{S}}
+\newcommand{\cT}{\mathcal{T}}
+\newcommand{\cU}{\mathcal{U}}
+\newcommand{\cV}{\mathcal{V}}
+\newcommand{\cW}{\mathcal{W}}
+\newcommand{\cX}{\mathcal{X}}
+\newcommand{\cY}{\mathcal{Y}}
+\newcommand{\cZ}{\mathcal{Z}}
+
+
+% Greek shortcuts
+\newcommand{\La}{\Lambda}
+\newcommand{\vf}{\varphi}
+
+% Operators and functors
+\newcommand{\add}{\operatorname{add}}
+\newcommand{\Aut}{\operatorname{Aut}}
+\newcommand{\coker}{\operatorname{Coker}}
+\newcommand{\End}{\operatorname{End}}
+\newcommand{\Ext}{\operatorname{Ext}}
+\newcommand{\gl}{\operatorname{gl.dim}}
+\newcommand{\Gr}{\operatorname{Gr}}
+\newcommand{\Hom}{\operatorname{Hom}}
+\newcommand{\im}{\operatorname{Im}}
+\newcommand{\injd}{\operatorname{inj.dim}}
+\newcommand{\Iso}{\operatorname{Iso}}
+\newcommand{\modu}{\operatorname{mod}}
+\newcommand{\pd}{\operatorname{proj.dim}}
+\newcommand{\rad}{\operatorname{rad}}
+\newcommand{\soc}{\operatorname{soc}}
+\newcommand{\supp}{\operatorname{supp}}
+
+% Miscellaneous symbols
+\newcommand{\D}{\partial}
+\newcommand{\fg}{\mathfrak{g}}
+\newcommand{\HG}{\mathrm{H}}
+\newcommand{\la}{\langle}
+\newcommand{\Proj}{\mathbb{P}}
+\newcommand{\qbinom}[2]{\begin{bmatrix} #1\\#2 \end{bmatrix}}
+\newcommand{\ra}{\rangle}
+
+% Allow multiline displays to break across pages
+\allowdisplaybreaks
+
+% ---------------- Theorem Environments ----------------
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem*{acknowledgement}{Acknowledgements}
+\newtheorem{algorithm}[theorem]{Algorithm}
+\newtheorem{axiom}[theorem]{Axiom}
+\newtheorem{case}[theorem]{Case}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{conclusion}[theorem]{Conclusion}
+\newtheorem{condition}[theorem]{Condition}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{construction}[theorem]{Construction}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{criterion}[theorem]{Criterion}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{notation}[theorem]{Notation}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{solution}[theorem]{Solution}
+\newtheorem{summary}[theorem]{Summary}
+\newtheorem*{thm}{Theorem}
+
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+
+\begin{document}
+\onehalfspacing
+\input xy
+\xyoption{all}
+
+% ---------------- Document Metadata ----------------
+\title{\textbf{2-cyclic Laurent Polynomial Algebras \\and their categorifications}}
 \author{Yiyu Li}
 \date{}
+
+% ---------------- Author Details ----------------
+\newcommand{\AuthorAffiliation}{Yiyu Li, School of Mathematical Science, Beijing Normal University, Chengdu 610064, P.R.China}
+\newcommand{\AuthorEmail}{\texttt{liyiyumath@gmail.com}}
+
+\AtEndDocument{%
+  \par\bigskip
+  \begin{center}
+    \small \AuthorAffiliation\par
+    \AuthorEmail
+  \end{center}%
+}
+
 \maketitle
 
 \begin{abstract}
-In this paper, we explore the 2-cyclic quiver Laurent polynomial algebra and its categorification. Inspired by the framework of cluster algebras, the study begins by introducing the concept of 2-cyclic quivers and their mutation. We define 2-cyclic Laurent polynomial algebra is established and prove that the Laurent monomial phenomenon behaved on 2-cyclic Laurent polynomial algebra. We further classify 2-cyclic Laurent polynomial algebras in the finite type case and extends essential concepts from cluster algebras, such as $c$-vectors, $g$-vectors, and $F$-polynomials, to the 2-cyclic Laurent polynomial algebra framework, as a consequence, We prove the sign-coherence of $c$-vectors of 2-cyclic Laurent polynomial algebra.. Moreover, we establish the connections between 2-cyclic Laurent polynomial algebras and cluster algebras.
+
+In this paper, we explore the 2-cyclic quiver Laurent polynomial algebra and its categorification. Inspired by the framework of cluster algebras, the study begins by introducing the concept of 2-cyclic quivers and their mutation. We define 2-cyclic Laurent polynomial algebra is established and prove that the Laurent monomial phenomenon behaved on 2-cyclic Laurent polynomial algebra. We further classify 2-cyclic Laurent polynomial algebras in the finite type case and extends essential concepts from cluster algebras, such as $c$-vectors, $g$-vectors, and $F$-polynomials, to the 2-cyclic Laurent polynomial algebra framework, as a consequence, We prove the sign-coherence of $c$-vectors of 2-cyclic Laurent polynomial algebra. Moreover, we establish the connections between 2-cyclic Laurent polynomial algebras and cluster algebras.
 
 We also expand the Derksen-Weyman-Zelevinsky theory of quivers with potential to the 2-cyclic quivers. A mutation theory for 2-cyclic quivers with potentials is developed, and we prove that the mutation is an involution and that finite-dimensionality is a mutation invariant. Additionally, we show the existence of a well-behaved Jacobian-finite potential for the $\bA_n$-type 2-cyclic quiver, and furthermore, proves that the potential is also non-degenerate when $n \leq 3$.
 
@@ -25,22 +184,25 @@ In the final part of this thesis, combining the theory of  generalized cluster c
 \begin{equation}
 CC(X)=X^{-\fg_X}\sum_{e\in\bN^n}\chi\bigl(\Gr_e(H^0(X))\bigr)y^e,
 \end{equation}
-and it is proven that this map categorifies the $g$-vectors of the $\bA_n$-type 2-cyclic Laurent polynomial algebra, ensuring that the $\bA_n$-type generalized cluster category is cluster-tilting finite. For the categorification of the $F$-polynomials of 2-cyclic Laurent polynomial algebras, we prove that the F-polynomials of indecomposable $\tau$-rigid modules for $\bA_n$-type Jacobian algebras correspond to the $F$-polynomials of the associated 2-cyclic quiver when $n \leq 3$.
+and it is proven that this map categorifies the $g$-vectors of the $\bA_n$-type 2-cyclic Laurent polynomial algebra, ensuring that the $\bA_n$-type generalized cluster category is cluster-tilting finite. For the categorification of the $F$-polynomials of 2-cyclic Laurent polynomial algebras, we prove that the F-polynomials of indecomposable $\tau$-rigid modules for $\bA_n$-type Jacobian algebras correspond to the $\cF$-polynomials of the associated 2-cyclic quiver when $n \leq 3$.
 
 \end{abstract}
 
-\section{Introduction}
- Foundational aspects of cluster algebras can be found in \cite{fominClusterAlgebrasII2003}.
+\section{Introduction}\label{sec: intro}
 
-\section{2-cyclic Laurent Polynomial Algebras}
-\subsection{2-cyclic quivers and their mutation}
-\subsection{2-cyclic Laurent polynomial algebras}
-\subsection{\texorpdfstring{$c$-vectors, $g$-vectors, and $F$-polynomials}{c-vectors, g-vectors, and F-polynomials}}
-\subsection{Classification of 2-cyclic Laurent polynomial algebras}
+\cite{fominClusterAlgebrasIV2007}
 
-\section{2-cyclic quivers with potentials}
-\subsection{Mutation of 2-cyclic quivers with potentials}
+\begin{acknowledgement}
+
+\end{acknowledgement}
+
 
 \printbibliography
+
+\par\bigskip
+\begin{center}
+  \small \AuthorAffiliation\par
+  \AuthorEmail
+\end{center}
 
 \end{document}
